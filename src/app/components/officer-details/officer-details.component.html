@@ -1,0 +1,15 @@
+<div class="container mt-4" *ngIf="officer">
+  <h2>Officer Details</h2>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ officer.name }}</h5>
+      <p class="card-text">
+        <strong>Badge Number:</strong> {{ officer.badgeNumber }}
+      </p>
+      <p class="card-text">
+        <strong>Department:</strong> {{ officer.department }}
+      </p>
+      <a routerLink="/officers" class="btn btn-secondary">Back to Officers</a>
+    </div>
+  </div>
+</div>

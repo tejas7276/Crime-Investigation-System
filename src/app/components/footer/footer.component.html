@@ -1,0 +1,108 @@
+<footer class="citizen-footer">
+  <div class="footer-container">
+    <!-- Main Footer Content -->
+    <div class="footer-grid">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <h3 class="footer-logo">Crime<span>watch</span></h3>
+        <p class="footer-mission">
+          Your trusted platform for reporting crimes and staying informed about
+          community safety.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4 class="footer-title">Quick Actions</h4>
+        <ul>
+          <li>
+            <a routerLink="/crimes">
+              <i class="fas fa-chevron-right"></i> View Reported Crimes
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="userId ? '/file-crime/' + userId : '/file-crime'">
+              <i class="fas fa-chevron-right"></i> Report New Crime
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.cyberabadpolice.gov.in/information/safety-tips.html"
+            >
+              <i class="fas fa-chevron-right"></i> Safety Tips
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Resources - ONLY THIS SECTION'S LINKS CHANGED -->
+      <div class="footer-links">
+        <h4 class="footer-title">Resources</h4>
+        <ul>
+          <li>
+            <a href="https://mahapolice.gov.in/" rel="noopener noreferrer">
+              <i class="fas fa-chevron-right"></i> Maharashtra Police
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://criai.org/page.php?page=crime-prevention"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-chevron-right"></i> Mumbai Crime Prevention
+            </a>
+          </li>
+          <li>
+            <a href="https://www.cybercrime.gov.in/" rel="noopener noreferrer">
+              <i class="fas fa-chevron-right"></i> Cyber Crime Portal
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Emergency Contacts -->
+      <div class="footer-emergency">
+        <h4 class="footer-title">Emergency Contacts</h4>
+        <div class="emergency-card">
+          <div class="emergency-item">
+            <i class="fas fa-phone-alt emergency-icon"></i>
+            <div>
+              <h5>Police Emergency</h5>
+              <p>100</p>
+            </div>
+          </div>
+          <div class="emergency-item">
+            <i class="fas fa-hospital emergency-icon"></i>
+            <div>
+              <h5>Medical Emergency</h5>
+              <p>112</p>
+            </div>
+          </div>
+          <div class="emergency-item">
+            <i class="fas fa-fire emergency-icon"></i>
+            <div>
+              <h5>Fire Department</h5>
+              <p>911</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="footer-divider"></div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        &copy; {{ currentYear }} CrimeWatch. Keeping our neighborhoods safe |
+        Designed by Tejas 🚀
+      </div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Officers List</h2>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Badge Number</th>
+        <th>Department</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let officer of officers">
+        <td>{{ officer.id }}</td>
+        <td>{{ officer.name }}</td>
+        <td>{{ officer.badgeNumber }}</td>
+        <td>{{ officer.department }}</td>
+        <td>
+          <a
+            [routerLink]="['/officer-details', officer.id]"
+            class="btn btn-info"
+            >View</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,86 @@
+<!-- navbar.component.html -->
+<nav class="navbar crimewatch-navbar">
+  <div class="navbar-left">
+    <a routerLink="/" class="navbar-brand">CrimeWatch</a>
+  </div>
+
+  <div class="navbar-right">
+    <!-- Enhanced Notification Bell -->
+    <div class="notification-wrapper" [class.active]="showNotifications">
+      <div class="notification-bell" (click)="onNotificationToggle()">
+        <i class="fas fa-bell"></i>
+        <span *ngIf="unreadCount > 0" class="notification-badge pulse">{{
+          unreadCount > 9 ? "9+" : unreadCount
+        }}</span>
+        <div class="bell-ripple"></div>
+      </div>
+
+      <!-- Premium Notification Dropdown -->
+      <div class="notification-dropdown" [class.show]="showNotifications">
+        <div class="notification-header">
+          <h5>
+            <i class="fas fa-bell"></i> Notifications
+            <span *ngIf="unreadCount > 0" class="unread-counter"
+              >{{ unreadCount }} unread</span
+            >
+          </h5>
+          <button class="close-btn" (click)="showNotifications = false">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="notification-body">
+          <!-- Loading State -->
+          <div *ngIf="isLoading" class="loading-state">
+            <div class="spinner"></div>
+            <span>Loading notifications...</span>
+          </div>
+
+          <!-- Empty State -->
+          <div
+            *ngIf="!isLoading && notifications.length === 0"
+            class="empty-state"
+          >
+            <div class="empty-icon">💤</div>
+            <p>No new notifications</p>
+            <small>You're all caught up!</small>
+          </div>
+
+          <!-- Notification Items -->
+          <div
+            *ngFor="let notification of notifications"
+            class="notification-item"
+            [class.unread]="notification.status === 'unread'"
+          >
+            <div class="notification-icon">
+              <i
+                class="fas"
+                [class.fa-exclamation-circle]="notification.status === 'unread'"
+                [class.fa-check-circle]="notification.status === 'read'"
+              ></i>
+            </div>
+            <div class="notification-content">
+              <p [innerHTML]="notification.message"></p>
+              <small class="notification-time">
+                {{ notification.timestamp | date : "MMM d, h:mm a" }}
+              </small>
+            </div>
+            <button
+              *ngIf="notification.status !== 'read'"
+              class="mark-as-read-btn"
+              (click)="markAsRead(notification.id); $event.stopPropagation()"
+            >
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logout Button -->
+    <button (click)="logout()" class="logout-btn">
+      <i class="fas fa-sign-out-alt"></i>
+      <span class="logout-text">Logout</span>
+    </button>
+  </div>
+</nav>

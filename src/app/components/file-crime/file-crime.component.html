@@ -1,0 +1,88 @@
+<div
+  class="file-crime-container shadow-lg p-4 bg-white rounded-4 border border-light-subtle"
+>
+  <h2 class="text-center fw-bold mb-4 text-primary-emphasis">
+    📝 File a Complaint
+  </h2>
+
+  <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <!-- Crime Type Dropdown -->
+    <div class="form-group mb-3">
+      <label for="type" class="form-label">Crime Type</label>
+      <select
+        id="type"
+        class="form-select form-control-lg"
+        [(ngModel)]="crime.type"
+        name="type"
+        required
+      >
+        <option *ngFor="let type of crimeTypes" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Location -->
+    <div class="form-group mb-3">
+      <label for="location" class="form-label">Selected Location</label>
+      <input
+        type="text"
+        id="location"
+        class="form-control form-control-lg mb-2"
+        [(ngModel)]="crime.location"
+        name="location"
+        placeholder="Search or click on map"
+        readonly
+      />
+      <div
+        id="map"
+        class="rounded-3 border border-2 border-primary-subtle"
+        style="height: 300px; color: rgb(41, 41, 41)"
+      ></div>
+    </div>
+
+    <!-- Description -->
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        id="description"
+        class="form-control form-control-lg"
+        [(ngModel)]="crime.description"
+        name="description"
+        rows="4"
+        required
+        placeholder="Describe what happened..."
+      ></textarea>
+    </div>
+
+    <!-- Date -->
+    <div class="form-group mb-3">
+      <label for="date" class="form-label">Date of Incident</label>
+      <input
+        type="date"
+        id="date"
+        class="form-control form-control-lg"
+        [(ngModel)]="selectedDate"
+        name="date"
+        required
+      />
+    </div>
+
+    <!-- Time -->
+    <div class="form-group mb-4">
+      <label for="time" class="form-label">Time of Incident</label>
+      <input
+        type="time"
+        id="time"
+        class="form-control form-control-lg"
+        [(ngModel)]="selectedTime"
+        name="time"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">
+      🚔 Submit Complaint
+    </button>
+  </form>
+</div>

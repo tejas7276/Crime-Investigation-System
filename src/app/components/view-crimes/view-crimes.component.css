@@ -1,0 +1,394 @@
+/* 🌟 Layout Container */
+.crime-dashboard-container {
+  padding: 2rem;
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+  min-height: 100vh;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* 🌟 Header Styling */
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.premium-icon {
+  font-size: 2.2rem;
+  color: #1e88e5;
+}
+
+.premium-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #263238;
+  margin: 0;
+}
+
+.stats-badge .premium-badge {
+  background: linear-gradient(to right, #42a5f5, #1e88e5);
+  color: white;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.2);
+}
+
+/* 🌟 Filter Bar Styling */
+.premium-filter-bar {
+  margin-top: 1.5rem;
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  flex: 1 1 300px;
+  background: #f1f3f6;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+}
+
+.search-icon {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  color: #607d8b;
+}
+
+.premium-search {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.premium-select,
+.premium-filter-btn {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #cfd8dc;
+  background: #f9f9f9;
+  color: #37474f;
+  transition: all 0.2s ease;
+}
+
+.premium-filter-btn {
+  background: #1e88e5;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+}
+
+.premium-filter-btn:hover {
+  background: #1565c0;
+}
+
+/* 🌟 Table Styling */
+.premium-table-container {
+  margin-top: 2rem;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.table-description {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #607d8b;
+}
+
+.premium-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header {
+  background: #f5f7fa;
+  color: #455a64;
+  font-weight: bold;
+}
+
+.sortable-header {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sort-icon {
+  margin-left: 0.5rem;
+}
+
+.table-row:hover {
+  background-color: #f9f9f9;
+}
+
+.case-id,
+.crime-type,
+.location,
+.date-time,
+.status-cell,
+.agent-cell,
+.action-cell {
+  padding: 0.8rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.agent-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.agent-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1e88e5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.agent-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.agent-name {
+  font-weight: 600;
+  color: #263238;
+}
+
+.badge-id {
+  font-size: 0.8rem;
+  color: #607d8b;
+}
+
+.unassigned-badge {
+  color: #c62828;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* 🌟 Status Badges */
+.status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.status-pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-resolved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-urgent {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* 🌟 Action Controls */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.premium-select-sm {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.premium-btn-sm.primary {
+  padding: 0.4rem 0.7rem;
+  background: #388e3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 128, 0, 0.2);
+}
+
+.premium-btn-sm.primary:hover {
+  background: #2e7d32;
+}
+
+/* 🌟 Loading State */
+.premium-loading {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.loading-text {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  color: #1e88e5;
+}
+
+.loading-subtext {
+  font-size: 0.95rem;
+  color: #607d8b;
+}
+
+/* 🌟 Empty State */
+.premium-empty-state {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  color: #90a4ae;
+}
+
+.premium-btn.primary {
+  margin-top: 1rem;
+  background: #1e88e5;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.premium-btn.primary:hover {
+  background: #1565c0;
+}
+
+/* 🌟 Error Alert */
+.premium-error-alert {
+  margin-top: 2rem;
+  background: #ffebee;
+  color: #c62828;
+  padding: 1.2rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.2);
+}
+
+.alert-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.alert-message h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.alert-message p {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #c62828;
+  cursor: pointer;
+}
+/* Filter bar animation */
+.premium-filter-bar {
+  animation: slideDown 0.6s ease-out;
+}
+
+/* Filter inputs */
+.premium-search,
+.premium-select {
+  transition: all 0.3s ease;
+}
+
+.premium-search:focus,
+.premium-select:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Table rows fade-in */
+.table-row {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  animation-delay: 0.1s;
+}
+
+.table-row:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.table-row:nth-child(3) {
+  animation-delay: 0.3s;
+}
+/* Repeat or use JS for dynamic delay */
+
+/* Dark mode transition */
+body,
+.premium-dashboard {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Keyframes */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

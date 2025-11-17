@@ -1,0 +1,10 @@
+<div class="container mt-4" *ngIf="user">
+  <h2>User Profile</h2>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ user.username }}</h5>
+      <p class="card-text"><strong>Role:</strong> {{ user.role }}</p>
+      <a routerLink="/users" class="btn btn-primary">Back to Users</a>
+    </div>
+  </div>
+</div>

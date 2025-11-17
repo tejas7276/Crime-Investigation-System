@@ -1,0 +1,14 @@
+<div class="container mt-4" *ngIf="crime">
+  <h2>Crime Details</h2>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ crime.crimeType }}</h5>
+      <p class="card-text"><strong>Date:</strong> {{ crime.date }}</p>
+      <p class="card-text"><strong>Location:</strong> {{ crime.location }}</p>
+      <p class="card-text">
+        <strong>Description:</strong> {{ crime.description }}
+      </p>
+      <a routerLink="/crimes" class="btn btn-primary">Back to Crimes</a>
+    </div>
+  </div>
+</div>

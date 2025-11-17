@@ -1,0 +1,27 @@
+<div class="home-container">
+  <div class="header">
+    <h1>Welcome to the Crime Management System</h1>
+    <p>Efficiently manage and track crimes with our advanced system.</p>
+  </div>
+
+  <div class="quick-links">
+    <a routerLink="/login" class="btn btn-primary">Login</a>
+    <a routerLink="/register" class="btn btn-secondary">Register</a>
+    <a routerLink="/crimes" class="btn btn-info">View Crimes</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <h3>Total Crimes</h3>
+      <p>{{ totalCrimes }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Resolved Crimes</h3>
+      <p>{{ resolvedCrimes }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Pending Crimes</h3>
+      <p>{{ pendingCrimes }}</p>
+    </div>
+  </div>
+</div>

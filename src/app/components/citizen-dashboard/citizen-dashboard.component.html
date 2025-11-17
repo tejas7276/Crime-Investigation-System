@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+
+<div class="dashboard-container">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading your dashboard...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="hasError" class="error-state">
+    <div class="error-icon">⚠️</div>
+    <h3>Something went wrong</h3>
+    <p>We couldn't load your crime data. Please try again later.</p>
+    <button class="btn btn-retry" (click)="loadCrimeData()">Retry</button>
+  </div>
+
+  <!-- Main Content -->
+  <div *ngIf="!isLoading && !hasError">
+    <div class="dashboard-header">
+      <h1>Welcome, {{ firstname }} 👋</h1>
+      <p>Track your crime reports and emergency services</p>
+    </div>
+
+    <!-- Emergency Alert -->
+    <div class="emergency-alert" *ngIf="isSOSActive">
+      🚑 Emergency assistance is on the way
+    </div>
+
+    <!-- SOS Notification -->
+    <div class="sos-notification" *ngIf="notification">
+      {{ notification }}
+    </div>
+
+    <!-- Dashboard Actions -->
+    <div class="dashboard-actions">
+      <a routerLink="/crimes" class="btn btn-primary">View Crimes</a>
+      <a [routerLink]="'/file-crime/' + userId" class="btn btn-info"
+        >Report Crime</a
+      >
+      <a [routerLink]="'/update-profile/' + userId" class="btn btn-secondary"
+        >Update Profile</a
+      >
+
+      <!-- SOS Button -->
+      <button
+        class="btn-sos"
+        (click)="triggerEmergencySOS()"
+        [disabled]="isSOSLoading"
+        [class.sos-active]="isSOSActive"
+      >
+        <span class="sos-icon">🆘</span>
+        {{ isSOSLoading ? "SENDING..." : "SOS" }}
+      </button>
+    </div>
+
+    <!-- Location Input Popup -->
+    <div class="sos-popup" *ngIf="showLocationInput">
+      <div class="sos-popup-content">
+        <h3>Emergency Location</h3>
+        <p>Where do you need help?</p>
+        <input
+          type="text"
+          [(ngModel)]="sosLocation"
+          placeholder="Enter your current location"
+        />
+        <div class="sos-popup-buttons">
+          <button class="btn-confirm" (click)="confirmSOS()">SEND HELP</button>
+          <button class="btn-cancel" (click)="cancelSOS()">CANCEL</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="dashboard-stats">
+      <div
+        class="stat-card total"
+        (click)="openModal('Total Crimes', userCrimes)"
+      >
+        <h3>Total Crimes</h3>
+        <p>{{ stats.total }}</p>
+      </div>
+      <div
+        class="stat-card resolved"
+        (click)="openModal('Resolved Crimes', resolvedCrimes)"
+      >
+        <h3>Resolved</h3>
+        <p>{{ stats.resolved }}</p>
+      </div>
+      <div
+        class="stat-card pending"
+        (click)="openModal('Pending Crimes', pendingCrimes)"
+      >
+        <h3>Pending</h3>
+        <p>{{ stats.pending }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Crime Details Modal -->
+  <div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+      <h2>{{ modalTitle }}</h2>
+      <div *ngIf="modalCrimes.length > 0; else noCrimes">
+        <div *ngFor="let crime of modalCrimes" class="crime-card">
+          <h4>#{{ crime.id }} - {{ crime.type }}</h4>
+          <p>📍 {{ crime.location }}</p>
+          <p>Status: {{ crime.status }}</p>
+        </div>
+      </div>
+      <ng-template #noCrimes>
+        <p>No crimes found</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
